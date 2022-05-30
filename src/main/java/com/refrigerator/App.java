@@ -1,6 +1,6 @@
 package com.refrigerator;
 
-import com.refrigerator.model.Refrigerator;
+import com.refrigerator.model.Menu;
 
 public class App {
 
@@ -8,9 +8,7 @@ public class App {
 		// TODO Auto-generated method stub
 		System.out.println(123);
 		
-		Refrigerator r = Refrigerator.builder().id(1).build();
-		System.out.println(r);
-		
+	
 
 	}
 
