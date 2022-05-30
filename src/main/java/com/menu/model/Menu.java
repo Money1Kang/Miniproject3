@@ -27,7 +27,7 @@ public class Menu {
 		
 	}
 	public Menu(int id, String menuName, String minute, int cost, int quantity) {
-		super();
+		
 		this.id = id;
 		this.menuName = menuName;
 		this.minute = minute;

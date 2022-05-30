@@ -7,6 +7,6 @@
 <title>레시피</title>
 </head>
 <body>
-	<h2>Hello World!</h2>
+	<h2>Hello Octopus!</h2>
 </body>
 </html>
