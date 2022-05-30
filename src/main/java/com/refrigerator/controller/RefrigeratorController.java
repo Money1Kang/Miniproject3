@@ -8,44 +8,50 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.refrigerator.model.Menu;
-import com.refrigerator.service.RefrigeratorService;
+
 
 @RestController
 public class RefrigeratorController {
-	private List<Menu> menus;
-	private RefrigeratorService refrigeratorService;
 
 
 
-	public RefrigeratorController(RefrigeratorService refrigeratorService) {
-		super();
-		this.refrigeratorService = refrigeratorService;
+	@GetMapping(value = "/read")
+	public List<Menu> allMenu() {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Miniproject3");
+		EntityManager em = emf.createEntityManager();
+		
+		String jpql = "SELECT m FROM Menu as m";
+		Query query = em.createQuery(jpql);
+
+		// 쿼리 실행
+		List<Menu> resultList = query.getResultList();
+
+		return resultList; 
+
 	}
-
-	@RequestMapping("/Menu")
-	public List<Menu> allMenu(@RequestParam("choice") String choice) {
-
-		// em.find로 데이터 전체 조회가 불가능해서 JPQL 사용
-
-		if (choice.equals("allMenu")) {
-			return refrigeratorService.allMenu();
-		} 
-
-		else if (choice.equals("deleteMenu")){
-			return refrigeratorService.deleteMenu();
-		} 
-
-		else if (choice.equals("addMenu")) {
-			return refrigeratorService.addMenu();
-
-		} 
-
-		return refrigeratorService.modifyMenu();
+	
+	
+	@DeleteMapping(value = "/delete")
+	public Menu deleteMenu(@RequestParam("id") int id) {
+		System.out.println(123);
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Miniproject3");
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		
+		tx.begin();
+		
+		Menu menu = em.find(Menu.class, id);
+		System.out.println(menu);
+		em.remove(menu);
+		
+		tx.commit();
+		return menu;
 	}
 
 
