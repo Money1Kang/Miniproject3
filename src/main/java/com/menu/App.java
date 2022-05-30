@@ -1,6 +1,6 @@
-package com.refrigerator;
+package com.menu;
 
-import com.refrigerator.model.Menu;
+import com.menu.model.Menu;
 
 public class App {
 

@@ -1,4 +1,4 @@
-package com.refrigerator.utils;
+package com.menu.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
