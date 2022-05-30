@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>dev.tuto</groupId>
-	<artifactId>refrigerator</artifactId>
+	<artifactId>menu</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>step02 Maven Webapp</name>
@@ -46,8 +46,14 @@
 			<scope>provided</scope>
 		</dependency>
 
-	</dependencies>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.12.3</version>
+		</dependency>
+  	</dependencies>
 	<build>
-		<finalName>refrigerator</finalName>
+		<finalName>menu</finalName>
 	</build>
 </project>
