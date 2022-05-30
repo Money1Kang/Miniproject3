@@ -14,7 +14,7 @@
 			<!-- JDBC Driver 설정 -->
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 			<!-- JDBC URL 설정 -->
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/orders?serverTimezone=UTC"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/orders?serverTimezone=UTC"/>
 			<!-- 접속 USER 설정 -->
 			<property name="javax.persistence.jdbc.user" value="root"/>
 			<!-- 접속 PW 설정 -->
