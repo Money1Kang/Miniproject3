@@ -21,20 +21,17 @@ public class Menu {
 	private int cost;
 	@Column(name = "quantity")
 	private int quantity;
-	@Column(name = "isOrder")
-	private boolean isOrder;
-	
+		
 	public Menu() {
 		
 	}
-	public Menu(int id, String menuName, String minute, int cost, int quantity, boolean isOrder) {
-		super();
+	public Menu(int id, String menuName, String minute, int cost, int quantity) {
 		this.id = id;
 		this.menuName = menuName;
 		this.minute = minute;
 		this.cost = cost;
 		this.quantity = quantity;
-		this.isOrder = isOrder;
+		
 	}
 	public int getId() {
 		return id;
@@ -66,17 +63,9 @@ public class Menu {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public boolean isOrder() {
-		return isOrder;
-	}
-	public void setOrder(boolean isOrder) {
-		this.isOrder = isOrder;
-	}
-	@Override
-	public String toString() {
-		return "Refrigerator [id=" + id + ", menuName=" + menuName + ", minute=" + minute + ", cost=" + cost
-				+ ", quantity=" + quantity + ", isOrder=" + isOrder + "]";
-	}
+	
+	
+	
 
 	
 }

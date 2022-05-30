@@ -6,7 +6,7 @@
 	<artifactId>refrigerator</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>step02 Maven Webapp</name>
+	<name>Miniproject3 Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<!-- JPA 구현체 Hibernate -->

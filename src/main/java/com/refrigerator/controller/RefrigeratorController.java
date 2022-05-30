@@ -10,6 +10,7 @@ import javax.persistence.Query;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +26,7 @@ public class RefrigeratorController {
 	public List<Menu> allMenu() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Miniproject3");
 		EntityManager em = emf.createEntityManager();
-		
+
 		String jpql = "SELECT m FROM Menu as m";
 		Query query = em.createQuery(jpql);
 
@@ -35,27 +36,41 @@ public class RefrigeratorController {
 		return resultList; 
 
 	}
-	
-	
+
+
 	@DeleteMapping(value = "/delete")
 	public Menu deleteMenu(@RequestParam("id") int id) {
 		System.out.println(123);
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Miniproject3");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
-		
+
 		tx.begin();
-		
+
 		Menu menu = em.find(Menu.class, id);
 		System.out.println(menu);
 		em.remove(menu);
-		
+
 		tx.commit();
 		return menu;
 	}
 
+	@PostMapping(value = "/post")
+	public Menu updateMenu(@RequestParam("id") int id, @RequestParam("cost") int cost, @RequestParam("quantity") int quantity) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Miniproject3");
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+	
+		tx.begin();
+		
+		Menu menu = em.find(Menu.class, id);
+		menu.setCost(cost);
+		menu.setQuantity(quantity);
+		em.persist(menu);
+		tx.commit();
+		
+		return menu; 
 
-
-
+	}
 
 }
